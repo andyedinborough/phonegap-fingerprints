@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+        id="at.gofg.sportscomputer.powermanagement"
+        version="1.0.0">
+    <name>Fingerprints</name>
+    <description></description>
+    <license></license>
+    <keywords></keywords>
+
+    <js-module src="www/fingerprints.js" name="device">
+        <clobbers target="window.fingerprints" />
+    </js-module>
+
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="Fingerprints">
+                <param name="ios-package" value="Fingerprints" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/Fingerprints.h" />
+        <source-file src="src/ios/Fingerprints.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Fingerprints" >
+                <param name="android-package" value="org.apache.cordova.fingerprints.Fingerprints"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+
+        </config-file>
+
+        <source-file src="src/android/Fingerprints.java" target-dir="src/org/apache/cordova/Fingerprints" />
+    </platform>
+</plugin>
