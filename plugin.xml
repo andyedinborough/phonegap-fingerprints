@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
-        id="at.gofg.sportscomputer.powermanagement"
+        id="com.tiger"
         version="1.0.0">
     <name>Fingerprints</name>
     <description></description>
@@ -28,7 +28,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Fingerprints" >
-                <param name="android-package" value="org.apache.cordova.fingerprints.Fingerprints"/>
+                <param name="android-package" value="com.tiger-financial.fingerprints.Fingerprints"/>
             </feature>
         </config-file>
 
@@ -36,6 +36,6 @@
 
         </config-file>
 
-        <source-file src="src/android/Fingerprints.java" target-dir="src/org/apache/cordova/Fingerprints" />
+        <source-file src="src/android/Fingerprints.java" target-dir="src/com/tiger-financial/fingerprints" />
     </platform>
 </plugin>
