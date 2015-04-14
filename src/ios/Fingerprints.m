@@ -1,5 +1,6 @@
 #import "Fingerprints.h"
-#import "iobegin.h"
+#import "iovation/iovation.h"
+#import "TrustDefenderMobile/TrustDefenderMobile.h"
 /**
  * Actual implementation of the interface
  */
@@ -7,11 +8,10 @@
 - (void) iovation:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
+    NSString* fingerprint = [iovation ioBegin];
 
-     NSString* iovation = ioBegin();
-
-     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:iovation];
-     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:fingerprint];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) threatmetrix:(CDVInvokedUrlCommand*)command
@@ -20,7 +20,8 @@
     NSString* orgId = [command.arguments objectAtIndex:0];
     NSString* sessionId = [command.arguments objectAtIndex:1];
 
-    TrustDefenderMobile* profile = [[TrustDefenderMobile alloc]init];
+    TrustDefenderMobile* profile = nil;
+    profile = [[TrustDefenderMobile alloc]init];
     profile.sessionID = sessionId;
     [profile doProfileRequestFor:orgId];
 
