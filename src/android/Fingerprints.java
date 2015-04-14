@@ -1,5 +1,5 @@
 
-package org.apache.cordova.fingerprints;
+package com.tigerfinancial.fingerprints;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,8 +33,8 @@ public class Fingerprints extends CordovaPlugin {
 					result = new PluginResult(PluginResult.Status.OK, iovation);
 			}
 			else if ( action.equals("threatmetrix") ) {
-				TrustDefenderMobile profile = new TrustDefenderMobile((String)args[0]);
-				profile.doProfileRequest(new ProfilingOptions().setSessionID((String)args[1]));
+				TrustDefenderMobile profile = new TrustDefenderMobile((String)args.get(0));
+				profile.doProfileRequest(new ProfilingOptions().setSessionID((String)args.get(1)));
 				result = new PluginResult(PluginResult.Status.OK);
 			}
 		}
